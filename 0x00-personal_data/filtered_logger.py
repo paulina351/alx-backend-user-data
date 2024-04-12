@@ -25,12 +25,13 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     )
     return myDB
 
+
 class RedactingFormatter(logging.Formatter):
     """A class implementation"""
 
     REDACTION = "****"
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
-    SEPERATOR =";"
+    SEPERATOR = ";"
 
     def __init__(self, fields: List[str]):
         super(RedactingFormatter, self).__init__(self.FORMAT)
@@ -50,6 +51,7 @@ class RedactingFormatter(logging.Formatter):
                                  f'{field}={redaction}{seperator}', message)
             return message
 
+
 def get_logger() -> logging.Logger:
     """logging object"""
     logger = loging.getLogger('user_data')
@@ -60,6 +62,7 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stream_handler)
 
     return logger
+
 
 def main() -> None:
     """Function"""
