@@ -14,6 +14,22 @@ class BasicAuth(Auth):
     """Class BasicAuth that inherits from Auth.
         For the moment this class will be empty.
 
+       Attributes:
+            Auth(class): inherit auth class to gather headers and paths.
+
+       Methods:
+            extract_base64_authorization_header: return the header string
+                if it starts with the word 'Basic'.
+
+            decode_base64_authorization_header: Encode and decode string
+                using Base64 and return result.
+
+            extract_user_credentials: return tuple of passed in string
+
+            user_object_from_credentials: Return correct user instance
+                given request's email and password
+
+            current_user: use all methods to authenticate user for request.
     """
     def extract_base64_authorization_header(
             self,
