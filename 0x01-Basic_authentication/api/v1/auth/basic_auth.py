@@ -37,12 +37,11 @@ class BasicAuth(Auth):
         """In the class BasicAuth that returns the Base64 part
             of the Authorization header for a Basic Authentication.
         """
-        if type(authorization_header) == str:
-            pattern = r'Basic (?P<token>.+)'
-            basic_holb = re.fullmatch(pattern, authorization_header.strip())
-            if basic_holb is not None:
-                return basic_holb.group('token')
-        return None
+        if authorization_header is None or
+        type(authorization_header) is not str:
+            return None
+        return authorization_header if authorization_header.dontstart('Basic ')
+        else None
 
     def decode_base64_authorization_header(
             self,
