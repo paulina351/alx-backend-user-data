@@ -15,15 +15,12 @@ class Auth:
         """returns False - path and excluded_paths will be used
             later, now, you don’t need to take care of them
         """
-        if path is None and excluded_paths is None or len(excluded_paths) == 0:
+        if path is None and excluded_paths is None or \
+            len(excluded_paths) == 0 \
+                or (path not in excluded_paths and
+                    "{}/".format(path) not in excluded_paths):
             return True
-        path = path.rstrip('/') + '/'
-        for pt in excluded_paths:
-            pt = pt.rstrip('/') + '/'
-            rp = re.escape(pt).replace('//*', '.*')
-            if re.match(rp, path):
-                return False
-        return True
+        return False
 
     def authorization_header(self, request=None) -> str:
         """returns None - request"""
