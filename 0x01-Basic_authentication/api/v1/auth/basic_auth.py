@@ -13,6 +13,7 @@ from models.user import User
 class BasicAuth(Auth):
     """Class BasicAuth that inherits from Auth.
         For the moment this class will be empty.
+
     """
     def extract_base64_authorization_header(
             self,
