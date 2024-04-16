@@ -4,8 +4,8 @@
 import base64
 import binascii
 import re
-from typing import Tuple, TypeVar
 
+from typing import Tuple, TypeVar
 from .auth import Auth
 from models.user import User
 
