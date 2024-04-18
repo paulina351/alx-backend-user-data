@@ -12,8 +12,8 @@ class Auth:
         To create a class to manage the API authentication.
     """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """returns False - path and excluded_paths will be used
-            later, now, you don’t need to take care of them
+        """A public require authentication method that
+            returns false to paths and excluded path.
         """
         if path is None and excluded_paths is None or \
             len(excluded_paths) == 0 \
@@ -24,9 +24,7 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """returns None - request"""
-        if request is None or 'Authorization' not in request.headers:
             return None
-        return request.headers['Authorization']
 
     def current_user(self, request=None) -> TypeVar('User'):
         """returns None - request"""

@@ -16,14 +16,16 @@ def status() -> str:
 
 @app_views.route("/unauthorized/", strict_slashes=False)
 def unauthorized() -> str:
-    """Tests the 401 error handler.
+    """Adding a new endpoint for unauthorized
+        to test the new error handler.
     """
     abort(401)
 
 
 @app_views.route("/forbidden/", strict_slashes=False)
 def forbidden() -> str:
-    """Tests the 403 error handler.
+    """Adding a new endpoint for forbidden
+        to test the new error handler.
     """
     abort(403)
 
