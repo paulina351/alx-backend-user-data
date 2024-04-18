@@ -14,22 +14,6 @@ def status() -> str:
     return jsonify({"status": "OK"})
 
 
-@app_views.route("/unauthorized/", strict_slashes=False)
-def unauthorized() -> str:
-    """Adding a new endpoint for unauthorized
-        to test the new error handler.
-    """
-    abort(401)
-
-
-@app_views.route("/forbidden/", strict_slashes=False)
-def forbidden() -> str:
-    """Adding a new endpoint for forbidden
-        to test the new error handler.
-    """
-    abort(403)
-
-
 @app_views.route('/stats/', strict_slashes=False)
 def stats() -> str:
     """ GET /api/v1/stats
