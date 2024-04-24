@@ -2,10 +2,13 @@
 """DB module
 """
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.orm.session import Session
-from user import Base, User
+from user import Base 
+from user import User
 
 
 class DB:
@@ -39,7 +42,7 @@ class DB:
             Returns:
                 User: The user
         """
-        add_user = User(email='email', hashed_password='hashed_password')
-        self.__session.add(add_user)
-        self.__session.commit()
-        return User
+        adduser = User(email='email', hashed_password='hashed_password')
+        self._session.add(adduser)
+        self._session.commit()
+        return adduser
