@@ -45,3 +45,24 @@ class DB:
         self._session.add(adduser)
         self._session.commit()
         return adduser
+
+    def find_user_by(self, **kwargs) -> users:
+        """
+        """
+        adduser = self.session.query(User).filter_by(**kwargs).first())
+        if not user:
+            raise NoResultFound("No user found")
+        return user
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """"""
+        try:
+            adduser = self.find_user_by(id=user_id)
+            for k, v in kwargs.items():
+                if hasattr(adduser, k):
+                    setattr(adduser, k, v)
+                else:
+                    raise InvalidRequestError
+            self._session.commit()
+        except (NoResultFound, InvalidRequestError, ValueError):
+            raise ValueError
