@@ -5,7 +5,6 @@ import requests
 
 def register_user(email: str, password: str) -> None:
     """Create one function for each of the following tasks.
-        
         Arguments:
             email: the user's email.
             password: the user's password
@@ -22,7 +21,6 @@ def register_user(email: str, password: str) -> None:
 
 def log_in_wrong_password(email: str, password: str) -> None:
     """Create one function for each of the following tasks.
-        
         Arguments:
             email: the user's email.
             password: the user's password
@@ -59,7 +57,7 @@ def profile_unlogged() -> None:
 
 
 def profile_logged(session_id: str) -> None:
-     """Create one function for each of the following tasks.
+    """Create one function for each of the following tasks.
 
         Arguments:
             session_id: the user's session id
@@ -73,18 +71,17 @@ def profile_logged(session_id: str) -> None:
 
 def log_out(session_id: str) -> None:
     """Create one function for each of the following tasks.
-
         Arguments:
-            session_id: the user's session id 
+            session_id: the user's session id
         Return: None
     """
-     cookies = {'session_id': session_id}
-     req = requests.delete('http://127.0.0.1:5000/sessions',
-                           cookies=cookies)
-     if req.status_code == 302:
-         assert(req.url == 'http://127.0.0.1:5000/')
-     else:
-         assert(req.status_code == 200)
+    cookies = {'session_id': session_id}
+    req = requests.delete('http://127.0.0.1:5000/sessions',
+                          cookies=cookies)
+    if req.status_code == 302:
+        assert(req.url == 'http://127.0.0.1:5000/')
+    else:
+        assert(req.status_code == 200)
 
 
 def reset_password_token(email: str) -> str:
