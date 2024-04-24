@@ -7,8 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.orm.session import Session
-from user import Base 
-from user import User
+from user import Base, User
 
 
 class DB:
@@ -42,7 +41,7 @@ class DB:
             Returns:
                 User: The user
         """
-        adduser = User(email='email', hashed_password='hashed_password')
+        adduser = User(email=email, hashed_password=hashed_password)
         self._session.add(adduser)
         self._session.commit()
         return adduser
