@@ -50,6 +50,7 @@ def profile_unlogged() -> None:
     """Create one function for each of the following tasks.
 
         Arguments:
+            Nil
         Return: None
     """
     req = requests.post('http://127.0.0.1:5000/profile')
