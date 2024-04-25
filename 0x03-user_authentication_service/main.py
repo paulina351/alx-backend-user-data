@@ -35,7 +35,7 @@ def log_in(email: str, password: str) -> str:
     """Create one function for each of the following tasks.
 
         Arguments:
-            email: the user's email.
+            email: the user's email details
             password: the user's password
         Return: str
     """
